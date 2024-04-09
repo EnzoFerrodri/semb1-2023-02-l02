@@ -157,9 +157,11 @@ int main(int argc, char *argv[])
         if (!(STM32_GPIOA_IDR & (1 << 0))) {
             // liga led
             *pGPIOC_BSRR = GPIO_BSRR_RESET(13);
+             for (i = 0; i < LED_DELAY; i++);
         } else {
             // desliga led
             *pGPIOC_BSRR = GPIO_BSRR_SET(13);
+             for (i = 0; i < LED_DELAY; i++);
         }
     }
 
